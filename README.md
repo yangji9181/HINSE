@@ -17,6 +17,9 @@ python3 submodule.py dblp
 
 ## Eigenlist Generating
 
-Calculated eigenvalues and plot the final eigenvalue plots using python.
+Calculated eigenvalues and plot the final eigenvalue plots using python. The 2nd argument is the dataset name, and the 3rd and 4th arguments are 
+```
+python3 eigen_cal_all.py dblp
+```
 
 ## Autoencoding Data
