@@ -23,3 +23,9 @@ python3 eigen_cal_all.py dblp
 ```
 
 ## Autoencoding Data
+
+Compress the original embedding using the autoencoder. The parameters could be changed inside the autoencoder_dblp.py script.
+
+```
+python3.5 -u autoencoder_dblp.py --dataset dblp
+```
