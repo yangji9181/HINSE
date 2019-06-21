@@ -522,7 +522,7 @@ class eig_analysis():
             diag_list = np.asarray(np.sum(A.todense(),axis=0)[0])
             print('Start point:', diag_list.shape[0] - np.count_nonzero(diag_list))
             egval_1,egvec_1 = np.linalg.eig(L)
-            # self.svd_embedding(L,bigi,egval_1,egvec_1)
+            self.svd_embedding(L,bigi,egval_1,egvec_1)
             eigen_list.append(egval_1)
         return eigen_list
 
