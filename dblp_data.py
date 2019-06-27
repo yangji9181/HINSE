@@ -181,17 +181,17 @@ class Dblp2node_link:
 """The following data is extracted from Aminer database. Please follow their instructions to
 select the year range. After selecting year, you could algo select venues as you want.
 """
-authorpath = "../filtered_data/author-1995-2014.csv"
-refpath = "../filtered_data/refs-1995-2014.csv"
-paperpath = "../filtered_data/paper-1995-2014.csv"
-personpath = "../filtered_data/person-1995-2014.csv"
-groundtruth = "/shared/data/mengqu2/data_dblp/eval/clus_dblp/vocab-label.txt"
+authorpath = "./data/author-1900-2020.csv"
+refpath = "./data/refs-1900-2020.csv"
+paperpath = "./data/paper-1900-2020.csv"
+personpath = "./data/person-1900-2020.csv"
+groundtruth = "./data/vocab-label.txt"
 # selected_venue = ['AAAI','CVPR','ECML','IJCAI','SIGMOD','VLDB','PODS','EDBT','ICDE','ICDM','KDD','PAKDD','PKDD','ECIR','SIGIR','WSDM','WWW','CIKM']
 # selected_venue = ['ICDM','KDD','PAKDD','PKDD','WSDM','WWW','CIKM']
 # selected_venue = ['KDD','ECML','PKDD']
 selected_venue = []
 
-save_dir = 'data/dblp/'
+save_dir = './data/dblp/'
 def main():
     dblp2data =Dblp2node_link()
     dblp2data.read_author(authorpath)

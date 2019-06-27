@@ -70,7 +70,7 @@ def data_prep(dataset_name, ground_truth_file, select_idxs, select_Range, multil
     select_idxs_set = set(select_idxs)
     # Read all embedding
     embedd_names = []
-    with open('../metapath_%s.txt' % dataset_name ,'r') as meta_path:
+    with open('./metapath_%s.txt' % dataset_name ,'r') as meta_path:
         count = 0
         for line in meta_path:
             toks = line.replace('\n','')
@@ -150,7 +150,7 @@ def main():
     print(num_steps)
     # Preprocess the inputs to be in [-1,1] and split the data in train/test sets
     # from sklearn import preprocessing, model_selection
-    X,Y,truth_label,embedd_names,mapping = data_prep(dataset_name,'../practice/data/%s/groundtruth/name-label.txt' % dataset_name,[2,3,6,7],\
+    X,Y,truth_label,embedd_names,mapping = data_prep(dataset_name,'./data/name-label.txt',[1,2,3],\
                                             # [(-500,-350),(-500,-350),(-500,-350),(-500,-350),(-500,-350),(-500,-350),(-1200,-1050),(-1100,-950),(-1100,-950)])
                                             select_Range,args.class_type)
     score = svm_cv(X, truth_label, args.class_type)

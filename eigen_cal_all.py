@@ -31,7 +31,7 @@ class eig_analysis():
         for key in class_id_mapping:
             self.inverse_class_id_mapping[class_id_mapping[key]] = key
         self.metapaths = []
-        with open('../metapath_%s.txt' % dataset_name) as input_meta:
+        with open('./metapath_%s.txt' % dataset_name) as input_meta:
             for line in input_meta:
                 meta_path = line.replace('\n','')
                 self.metapaths.append(meta_path)
@@ -304,9 +304,9 @@ class eig_analysis():
         #     for line in checkfile:
         #         toks = line.replace('\n','').split('\t')
         #         if output_for_sv[int(toks[0])] != toks[1]: print(output_for_sv[int(toks[0])], toks[1])
-        # with open('doublecheck_test_%s.txt' % self.dataset_name,'w') as svfile:
-        #     for key in output_for_sv:
-        #         svfile.write(str(key)+'\t'+output_for_sv[key]+'\n')
+        with open('doublecheck_test_%s.txt' % self.dataset_name,'w') as svfile:
+            for key in output_for_sv:
+                svfile.write(str(key)+'\t'+output_for_sv[key]+'\n')
         print('Doublecheck writing down!')
         if not os.path.exists('./homo_graph/%s/' % self.dataset_name): os.makedirs('./homo_graph/%s/' % self.dataset_name)
         # with open('./homo_graph/%s/node.dat' % self.dataset_name,'w') as nodefile:
@@ -447,12 +447,12 @@ class eig_analysis():
         #         link_out.write(line)
         #call('bash ../part2_local.sh tmp_meta.txt %s' % self.dataset_name,shell=True)
         #call('python3 ../node_classification_1.py %s tmp_meta.txt' % self.dataset_name,shell=True)
-        new_label_li = self.read_result(selected_meta_idx)
-        self.new_label_li = new_label_li
-        print('New label list:',new_label_li)
+        # new_label_li = self.read_result(selected_meta_idx)
+        self.new_label_li = []
+        # print('New label list:',new_label_li)
     def read_result(self, selected_meta_idx):
         label_li = []
-        with open('node_classification_log.txt') as target:
+        with open('node_classification_log.txt','w') as target:
             content = target.read()
             results = content.split('=========================================================================')
             for i in range(len(selected_meta_idx)):
@@ -483,11 +483,13 @@ class eig_analysis():
     def svd_embedding(self, L, i,eg,evec):
         u, s, vh = np.linalg.svd(L, full_matrices=True)
         title = self.dataset_name
-        np.save('spectral_emed/%s_%d_u_neg'% (title,i),u)
-        np.save('spectral_emed/%s_%d_s_neg'% (title,i),s)
-        np.save('spectral_emed/%s_%d_vh_neg'% (title,i),vh)
-        np.save('spectral_emed/%s_%d_eg'% (title,i),eg)
-        np.save('spectral_emed/%s_%d_evec'% (title,i),evec)
+        if not os.path.exists('./data/spectral_emed'):
+            os.makedirs('./data/spectral_emed')
+        np.save('./data/spectral_emed/%s_%d_u_neg'% (title,i),u)
+        np.save('./data/spectral_emed/%s_%d_s_neg'% (title,i),s)
+        np.save('./data/spectral_emed/%s_%d_vh_neg'% (title,i),vh)
+        np.save('./data/spectral_emed/%s_%d_eg'% (title,i),eg)
+        np.save('./data/spectral_emed/%s_%d_evec'% (title,i),evec)
         print(s)
     def eigen_cal(self,affinity_list, newlen, selected_idxs):
         eigen_list = []
@@ -621,6 +623,6 @@ def main():
     # affinity_list = eig_analy.filter_API([affinity_list[q] for q in [i,j]])
     #########################################################
     eigvalues = eig_analy.eigen_cal(affinity_mat,newlen,selected_indexs)
-    label_and_plot(eigvalues, label_li, '%s_start_point_weighted_1' % dataset_name,eig_analy.select_idx)
+    # label_and_plot(eigvalues, label_li, '%s_start_point_weighted_1' % dataset_name,eig_analy.select_idx)
 
 main()

@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 
 def initial_read( ground_truth,data_flag, index,selected_class,dataset_name, multilabel_flag):
     idx_ = int(index)
-    u = np.load('../practice/spectral_emed/%s_%d_u_neg.npy' % (dataset_name,idx_)).astype(np.float64)
+    u = np.load('./data/spectral_emed/%s_%d_u_neg.npy' % (dataset_name,idx_)).astype(np.float64)
     # ou = np.load('../practice/spectral_emed/%s_%d_u.npy' % (dataset_name,idx_))
-    s = np.load('../practice/spectral_emed/%s_%d_s_neg.npy' % (dataset_name,idx_))
+    s = np.load('./data/spectral_emed/%s_%d_s_neg.npy' % (dataset_name,idx_))
     # os = np.load('../practice/spectral_emed/%s_%d_s.npy' % (dataset_name,idx_))
     # print(s)
     # print(os)
@@ -45,9 +45,9 @@ def initial_read( ground_truth,data_flag, index,selected_class,dataset_name, mul
     labels_set = list(labels_set)
     selected_rows = []
     if dataset_name == 'dblp':
-        path_name = '../practice/doublecheck_test_%s.txt' % (dataset_name)
+        path_name = './doublecheck_test_%s.txt' % (dataset_name)
     else:
-        path_name = '../practice/doublecheck_test_%s.txt' % (dataset_name)
+        path_name = './doublecheck_test_%s.txt' % (dataset_name)
     with open(path_name) as check:
         index = 0
         for line in check:

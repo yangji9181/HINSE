@@ -27,7 +27,7 @@ class SubgraphMatching():
                     output.write('t #\n'+queries[i])
                 call('cat SubMatch/data/%s.q' % self.dataset, shell = True)
                 print('t #\n'+queries[i])
-                command = 'wine SubMatch/SubMatch.exe mode=2 data=SubMatch/data/%s.lg query=SubMatch/data/%s.q maxfreq=1000000000 stats=SubMatch/output/%s' % \
+                command = 'wine SubMatch/SubMatch.exe mode=2 data=SubMatch/data/%s.lg query=SubMatch/data/%s.q maxfreq=100000000000 stats=SubMatch/output/%s' % \
                         (self.dataset, self.dataset, self.dataset)
                 call(command, shell=True)
                 call('cp SubMatch/output/%s/1 SubMatch/output/%s_tmp/%s' % (self.dataset, self.dataset,i), shell=True)
