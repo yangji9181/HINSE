@@ -1,7 +1,16 @@
-# HINSE
-Meta-Graph Based HIN Spectral Embedding
+## Implementation of *HINSE*, ICDM 2018.
 
-This github repository is under construction.
+Please cite the following work if you find the code useful.
+
+```
+@inproceedings{yang2019cube2net,
+	Author = {Yang, Carl and Feng, Yichen and Li, Pan and Shi, Yu and Han, Jiawei},
+	Booktitle = {ICDM},
+	Title = {Meta-graph based hin spectral embedding: methods, analyses and insights},
+	Year = {2018}
+}
+```
+Contact: Carl Yang (yangji9181@gmail.com)
 
 ## Data Prepreation
 For example, we use DBLP dataset. The data is processed using https://github.com/macks22/dblp . Please put the processed data under the data folder.
