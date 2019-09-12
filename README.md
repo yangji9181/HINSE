@@ -3,7 +3,7 @@
 Please cite the following work if you find the code useful.
 
 ```
-@inproceedings{yang2019cube2net,
+@inproceedings{yang2018meta,
 	Author = {Yang, Carl and Feng, Yichen and Li, Pan and Shi, Yu and Han, Jiawei},
 	Booktitle = {ICDM},
 	Title = {Meta-graph based hin spectral embedding: methods, analyses and insights},
